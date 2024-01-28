@@ -1,9 +1,11 @@
 import sys
 from Adafruit_IO import MQTTClient
+import time
+import random
 
 AIO_FEED_IDs = ["button1" , "button2"]
 AIO_USERNAME = "PDucMinh"
-AIO_KEY = "aio_oUaW58kVAHOecHG1pTg1YzNLiY20"
+AIO_KEY = "aio_dBfx80uEdem7mIVfWRKuewg3le5M"
 
 def connected(client):
     print("Ket noi thanh cong ...")
@@ -29,5 +31,16 @@ client.on_subscribe = subscribe
 client.connect()
 client.loop_background()
 
+counter = 10
 while True:
+    counter = counter - 1
+    if counter <= 0:
+        counter = 10
+        #TO DO
+        print("Data is publishing")
+        temp = random.randint(-50, 80)
+        client.publish("sensor1", temp)
+
+
+    time.sleep(1)
     pass
