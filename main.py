@@ -2,6 +2,7 @@ import sys
 from Adafruit_IO import MQTTClient
 import time
 import random
+import tensorflow as tf
 
 AIO_FEED_IDs = ["button1" , "button2"]
 AIO_USERNAME = "PDucMinh"
