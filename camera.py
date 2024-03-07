@@ -1,6 +1,7 @@
 from keras.models import load_model  # TensorFlow is required for Keras to work
 import cv2  # Install opencv-python
 import numpy as np
+import time
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
@@ -12,8 +13,8 @@ model = load_model(r"C:\Users\Domus\Desktop\iot_project\model\keras_Model.h5", c
 class_names = open(r"C:\Users\Domus\Desktop\iot_project\model\labels.txt").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
-# camera = cv2.VideoCapture(0)
-camera = cv2.VideoCapture('http://192.0.0.4:8080/video')
+camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture('http://192.0.0.4:8080/video')
 
 while True:
     # Grab the webcamera's image.
@@ -23,7 +24,7 @@ while True:
     image = cv2.resize(image, (224, 224), interpolation=cv2.INTER_AREA)
 
     # Show the image in a window
-    # cv2.imshow("Webcam Image", image)
+    cv2.imshow("Webcam Image", image)
 
     # Make the image a numpy array and reshape it to the models input shape.
     image = np.asarray(image, dtype=np.float32).reshape(1, 224, 224, 3)
@@ -47,6 +48,6 @@ while True:
     # 27 is the ASCII for the esc key on your keyboard.
     if keyboard_input == 27:
         break
-
+    time.sleep(1)
 camera.release()
 cv2.destroyAllWindows()
