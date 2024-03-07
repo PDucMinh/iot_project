@@ -7,7 +7,7 @@ import tensorflow.python as tf
 import numpy as np
 AIO_FEED_IDs = ["button1" , "button2"]
 AIO_USERNAME = "PDucMinh"
-AIO_KEY = "aio_RNvu55w4zziM0fErHzAoZTOdCiuC"
+AIO_KEY = "aio_wlxu656MRD9kxNqTkLvK5nysXiHT"
 
 def connected(client):
     print("Ket noi thanh cong ...")
