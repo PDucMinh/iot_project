@@ -1,5 +1,6 @@
 import serial.tools.list_ports
-
+import sys
+import time
 def getPort():
     ports = serial.tools.list_ports.comports()
     N = len(ports)
@@ -10,11 +11,13 @@ def getPort():
         if "USB Serial Device" in strPort:
             splitPort = strPort.split(" ")
             commPort = (splitPort[0])
-    return commPort
+    # print(commPort)
+    # return commPort
+    return "COM6"
 
-if getPort() != "None":
-    ser = serial.Serial( port=getPort(), baudrate=115200)
-    print(ser)
+# if getPort() != "None":
+ser = serial.Serial( port=getPort(), baudrate=115200)
+print(ser)
 
 def processData(data):
     data = data.replace("!", "")
