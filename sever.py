@@ -11,7 +11,7 @@ from uart import *
 
 AIO_FEED_IDs = ["aiot.temp" , "aiot.fan", "aiot.door", "aiot.humid"]
 AIO_USERNAME = "PDomus"
-AIO_KEY = "aio_vMlF59TMj7Peq5BAaCvF2INcQlTZ"
+AIO_KEY = ""
 client = MQTTClient(AIO_USERNAME , AIO_KEY)
 
 def connected(client):
